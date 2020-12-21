@@ -1,6 +1,6 @@
 package com.company;
 
-public class Cards {
+public class Card {
 
     //Fields
     private String playerName;
@@ -11,7 +11,7 @@ public class Cards {
     private int pace;
 
     //General Constructor
-    public Cards(String playerName, String playerClub, int shooting, int passing, int tackling, int pace){
+    public Card(String playerName, String playerClub, int shooting, int passing, int tackling, int pace){
         this.playerName = playerName;
         this.playerCountry = playerClub;
         this.shooting = shooting;
@@ -25,9 +25,7 @@ public class Cards {
         return playerName;
     }
 
-    public String getPlayerClub(){
-        return playerCountry;
-    }
+    public String getPlayerCountry(){ return playerCountry; }
 
     public int getShooting(){
         return shooting;
