@@ -16,9 +16,6 @@ public class Deck {
             cardArray[index] = cardArray[i];
             cardArray[i] = a;
         }
+        System.out.println("Shuffle of deck complete.");
     }
-
-
-
-
 }
