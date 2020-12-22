@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Random;
+
 public class Card {
 
     //Fields
@@ -11,9 +13,9 @@ public class Card {
     private int pace;
 
     //General Constructor
-    public Card(String playerName, String playerClub, int shooting, int passing, int tackling, int pace){
+    public Card(String playerName, String playerCountry, int shooting, int passing, int tackling, int pace){
         this.playerName = playerName;
-        this.playerCountry = playerClub;
+        this.playerCountry = playerCountry;
         this.shooting = shooting;
         this.passing = passing;
         this.tackling = tackling;
@@ -41,6 +43,21 @@ public class Card {
 
     public int getPace(){
         return pace;
+    }
+
+    //Fisher-Yates shuffle
+    public static void shuffleArray(Card[] cardArray){
+        Random rnd = new Random();
+
+        for(int i = cardArray.length - 1; i > 0; i--) {
+            int index = rnd.nextInt(i + 1);
+
+            //Swap entries in the array.
+            Card a = cardArray[index];
+            cardArray[index] = cardArray[i];
+            cardArray[i] = a;
+        }
+        System.out.println("Shuffle of deck complete.");
     }
 
     //Method to return particular attribute for comparison based on input of particular number.

@@ -18,6 +18,22 @@ public class Main {
         CardData.createCards(cardArray);
 
         //calling method to shuffle the deck of cards
-        Deck.shuffleArray(cardArray);
+        Card.shuffleArray(cardArray);
+
+        //create 2 linked lists to hold the two players hands of cards.
+        LinkedList hand1 = new LinkedList();
+        LinkedList hand2 = new LinkedList();
+
+        //call method to deal cards into the two linked lists created above.
+        LinkedList.deal(hand1, hand2, cardArray);
+
+        //Methods to print the linked lists.
+        LinkedList.printList(hand1);
+        LinkedList.printList(hand2);
+
+
+
+
+
     }
 }
