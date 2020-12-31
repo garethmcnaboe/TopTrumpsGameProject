@@ -1,11 +1,6 @@
 package com.company;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
-
-    public static Card[] cardArray;
 
     public static void main(String[] args) {
 
@@ -29,13 +24,13 @@ public class Main {
         LinkedList.deal(hand1, hand2, cardArray);
 
         //call method to print the linked lists.
-        LinkedList.printList(hand1);
-        LinkedList.printList(hand2);
+        //LinkedList.printList(hand1);
+        //LinkedList.printList(hand2);
 
         //call method to run the first round of the game.
         int roundCount = 1;
         while(roundCount<6) {
-            Round.Round(hand1, hand2, roundCount);
+            Round.gameRound(hand1, hand2, roundCount);
             roundCount++;
         }
     }

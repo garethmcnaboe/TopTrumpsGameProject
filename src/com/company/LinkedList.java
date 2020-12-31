@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class LinkedList {
 
     private Link first;
@@ -59,7 +57,6 @@ public class LinkedList {
         System.out.println();
     }
 
-
     //Method used to print the first card in the each players dec
     public static void printCard(LinkedList list, int roundCount) {
         LinkedList.Link currLink = list.first;
@@ -83,16 +80,16 @@ public class LinkedList {
             curr2Link = curr2Link.next;
         }
         switch (num) {
-            case 1: {
+            case 1 -> {
                 return Integer.compare(curr1Link.shooting, curr2Link.shooting);
             }
-            case 2: {
+            case 2 -> {
                 return Integer.compare(curr1Link.passing, curr2Link.passing);
             }
-            case 3: {
+            case 3 -> {
                 return Integer.compare(curr1Link.tackling, curr2Link.tackling);
             }
-            case 4: {
+            case 4 -> {
                 return Integer.compare(curr1Link.pace, curr2Link.pace);
             }
         }

@@ -7,7 +7,7 @@ public class Round {
     private static int player1Score;
     private static int computerScore;
 
-    public static void Round(LinkedList hand1, LinkedList hand2, int roundCount) {
+    public static void gameRound(LinkedList hand1, LinkedList hand2, int roundCount) {
         System.out.println("Player 1 card for this round is as follows:");
         System.out.println("___________________________________________");
         LinkedList.printCard(hand1,roundCount);
