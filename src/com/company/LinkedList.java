@@ -34,7 +34,7 @@ public class LinkedList {
     }
 
 
-    //method to delete a card from a particular position
+    //method to delete a card from a particular position - not called yet.
     public static void deleteAtPosition(LinkedList hand, int index) {
         //Store head link
         Link currLink = hand.first, prev = null;
@@ -96,6 +96,7 @@ public class LinkedList {
         System.out.println("Stat 2 - Passing: " + currLink.passing);
         System.out.println("Stat 3 - Tackling: " + currLink.tackling);
         System.out.println("Stat 4 - Pace: " + currLink.pace);
+        System.out.println();
     }
 
     //Method used to compare a particular in two cards - will return 1, -1 or 0
@@ -125,4 +126,3 @@ public class LinkedList {
         return 1000;
     }
 }
-

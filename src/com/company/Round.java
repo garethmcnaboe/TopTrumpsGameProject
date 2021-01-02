@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Round {
 
@@ -10,7 +11,9 @@ public class Round {
     private static int computerIndex = 1;
     private static int player1NumCards = 5;
     private static int computerNumCards = 5;
+    private static int input1;
     private static boolean gameOver = false;
+    private static boolean player1Round = true;
 
     public static boolean gameRound(LinkedList hand1, LinkedList hand2) {
 
@@ -27,17 +30,26 @@ public class Round {
         System.out.println("___________________________________________");
         LinkedList.printCard(hand1,player1Index);
 
-        //collects the players selection of which stat they wish to play.
-        Scanner sc = new Scanner(System.in);
-        String input;
+        //If Player1 won the last round they are asked to pick the next stat
+        if(player1Round) {
+            //collects the players selection of which stat they wish to play.
+            Scanner sc = new Scanner(System.in);
+            String input;
             do {
                 System.out.print("Please select the stat which you would like to play in this round: (1 or 2 or 3 or 4): ");
                 input = sc.nextLine();
-            } while (!((input.equals("1"))||(input.equals("2"))||(input.equals("3"))||(input.equals("4"))));
-        int input1 = Integer.parseInt(input);
+            } while (!((input.equals("1")) || (input.equals("2")) || (input.equals("3")) || (input.equals("4"))));
+            input1 = Integer.parseInt(input);
+        }
 
+        //If Computer won the last round they get to pick the next stat
+        if(!player1Round){
+            //Computer randonly picks the next stat 1 to 4
+            Random rn = new Random();
+            input1 = rn.nextInt(4)+1;
+        }
 
-        //calling method to compare the relevant stat on each players card.
+        //Calling method to compare the relevant stat on each players card.
         int resultOfRound = LinkedList.compare(hand1, hand2, player1Index, computerIndex, input1);
 
         //prints out the computers card for this round.
@@ -46,14 +58,16 @@ public class Round {
         LinkedList.printCard(hand2,computerIndex);
         System.out.println("_________________________________________________");
 
-        //adjusts the scores for each player
+        //Adjusts the scores for each player
         if (resultOfRound == 1) {
             System.out.println("You have won this round");
             player1Score++;
+            player1Round = true;
             }
         if (resultOfRound == -1) {
             System.out.println("You have lost this round");
             computerScore++;
+            player1Round = false;
             }
         if (resultOfRound == 0) {
             System.out.println("This round was a tie");
@@ -61,6 +75,8 @@ public class Round {
 
         //prints out the scores for each player to the screen
         System.out.println("Player1 score: " + player1Score + "    Computer score: " + computerScore);
+        System.out.println();
+        System.out.println();
 
         //moves each player onto their next card at the end of each round.
         player1Index++;
@@ -80,5 +96,8 @@ public class Round {
 
         return gameOver;
     }
+
+
+
 
 }
