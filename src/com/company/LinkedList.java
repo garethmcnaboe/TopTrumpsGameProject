@@ -33,6 +33,33 @@ public class LinkedList {
         first = newLink;
     }
 
+
+    //method to delete a card from a particular position
+    public static void deleteAtPosition(LinkedList hand, int index) {
+        //Store head link
+        Link currLink = hand.first, prev = null;
+
+        //Case 1: if index is 0, then head node itself is to be deleted
+        if(index == 0 && currLink != null){
+            hand.first = currLink.next;
+        }
+
+        //Case2: If the index is greater than 0 but less than the size of LinkedList
+        int counter = 0;
+
+        while(currLink != null){
+
+            if(counter == index){
+                prev.next = currLink.next;
+            }
+            else {
+                prev = currLink;
+                currLink = currLink.next;
+                counter++;
+            }
+        }
+    }
+
     //method to call the insert method alternatively on hand1 and hand2.
     public static void deal(LinkedList hand1, LinkedList hand2, Card[] cardArray) {
         int a = 0;
@@ -58,9 +85,9 @@ public class LinkedList {
     }
 
     //Method used to print the first card in the each players dec
-    public static void printCard(LinkedList list, int roundCount) {
+    public static void printCard(LinkedList list, int indexNum) {
         LinkedList.Link currLink = list.first;
-        for(int i = 1; i<roundCount; i++) {
+        for(int i = 1; i<indexNum; i++) {
             currLink = currLink.next;
         }
         System.out.println("Player Name: " + currLink.playerName);
@@ -72,11 +99,13 @@ public class LinkedList {
     }
 
     //Method used to compare a particular in two cards - will return 1, -1 or 0
-    public static int compare(LinkedList hand1, LinkedList hand2, int roundCount, int num) {
+    public static int compare(LinkedList hand1, LinkedList hand2, int player1Index, int computerIndex, int num) {
         LinkedList.Link curr1Link = hand1.first;
         LinkedList.Link curr2Link = hand2.first;
-        for(int i = 1; i<roundCount; i++) {
+        for(int i = 1; i<player1Index; i++) {
             curr1Link = curr1Link.next;
+        }
+        for(int i = 1; i<computerIndex; i++){
             curr2Link = curr2Link.next;
         }
         switch (num) {

@@ -27,11 +27,11 @@ public class Main {
         //LinkedList.printList(hand1);
         //LinkedList.printList(hand2);
 
-        //call method to run the first round of the game.
-        int roundCount = 1;
-        while(roundCount<6) {
-            Round.gameRound(hand1, hand2, roundCount);
-            roundCount++;
+        //call method to run
+        boolean gameOver = false;
+        while(!gameOver) {
+            gameOver = Round.gameRound(hand1, hand2);
         }
+        System.out.println("Game Over");
     }
 }
