@@ -14,6 +14,13 @@ public class Round {
     private static int input1;
     private static boolean gameOver = false;
     private static boolean player1Round = true;
+    private static boolean gameEasy = true;
+
+
+    //Setter for game difficulty level
+    public static void setLevel(boolean input){
+        gameEasy = input;
+    }
 
     public static boolean gameRound(LinkedList hand1, LinkedList hand2) {
 
@@ -44,9 +51,16 @@ public class Round {
 
         //If Computer won the last round they get to pick the next stat
         if(!player1Round){
-            //Computer randonly picks the next stat 1 to 4
-            Random rn = new Random();
-            input1 = rn.nextInt(4)+1;
+
+            //Computer selects the highest value stat on its card if game difficulty is set at hard
+            if(!gameEasy) {
+                input1 = LinkedList.checkCard(hand2, computerIndex);
+            }
+
+            //Computer randonly picks the next stat 1 to 4 if the game difficulty is set at easy
+            if(gameEasy){
+                Random rn = new Random();
+                input1 = rn.nextInt(4)+1;}
         }
 
         //Calling method to compare the relevant stat on each players card.
@@ -96,8 +110,4 @@ public class Round {
 
         return gameOver;
     }
-
-
-
-
 }

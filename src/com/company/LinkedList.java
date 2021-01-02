@@ -102,10 +102,10 @@ public class LinkedList {
     //Method used to compare a particular in two cards - will return 1, -1 or 0
     public static int compare(LinkedList hand1, LinkedList hand2, int player1Index, int computerIndex, int num) {
         LinkedList.Link curr1Link = hand1.first;
-        LinkedList.Link curr2Link = hand2.first;
         for(int i = 1; i<player1Index; i++) {
             curr1Link = curr1Link.next;
         }
+        LinkedList.Link curr2Link = hand2.first;
         for(int i = 1; i<computerIndex; i++){
             curr2Link = curr2Link.next;
         }
@@ -123,6 +123,39 @@ public class LinkedList {
                 return Integer.compare(curr1Link.pace, curr2Link.pace);
             }
         }
+        return 1000;
+    }
+
+    //Method for the computer to check its card to identify which is the highest stat on its card.
+    public static int checkCard(LinkedList hand2, int computerIndex){
+        LinkedList.Link curr2Link = hand2.first;
+        for(int i = 1; i<computerIndex; i++){
+            curr2Link = curr2Link.next;
+        }
+
+                if((curr2Link.shooting>=curr2Link.passing)
+                && (curr2Link.shooting>=curr2Link.tackling)
+                && (curr2Link.shooting>=curr2Link.pace)) {
+                return 1;
+                }
+
+                if((curr2Link.passing>=curr2Link.shooting)
+                && (curr2Link.passing>=curr2Link.tackling)
+                && (curr2Link.passing>=curr2Link.pace)) {
+                return 2;
+                }
+
+                if((curr2Link.tackling>=curr2Link.passing)
+                && (curr2Link.tackling>=curr2Link.shooting)
+                && (curr2Link.tackling>=curr2Link.pace)) {
+                return 3;
+                }
+
+                if((curr2Link.pace>=curr2Link.passing)
+                && (curr2Link.pace>=curr2Link.tackling)
+                && (curr2Link.pace>=curr2Link.shooting)) {
+                    return 4;
+                }
         return 1000;
     }
 }

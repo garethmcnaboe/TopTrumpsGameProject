@@ -9,7 +9,9 @@ public class Main {
         //calling method to show home screen
         Console.printHomeScreen();
 
-        while(playAnotherGame == true){
+        while(playAnotherGame){
+            Console.setLevel();
+
             //create an array called cardArray of 10 card objects.
             Card[] cardArray = new Card[10];
 

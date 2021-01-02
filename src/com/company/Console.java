@@ -6,11 +6,10 @@ public class Console {
 
     //Prints Home Screen and asks player are they ready to play.
     public static void printHomeScreen() {
-
         System.out.println("Welcome to Italy '90 Top Trumps");
         System.out.println();
         System.out.println("_____________________________________________________");
-        String input = "";
+        String input;
         String input1 = "";
         Scanner sc = new Scanner(System.in);
         while(!input1.equals("Y")){
@@ -20,13 +19,35 @@ public class Console {
         }
     }
 
+    //Method allows user to select the difficulty level they wish to play the game at.
+    public static void setLevel() {
+        System.out.println("Please select the level you would like to play at.");
+        String input;
+        String input1 = "";
+        boolean easy = true;
+        Scanner sc = new Scanner(System.in);
+        while (!((input1.equals("E"))||(input1.equals("D")))) {
+            System.out.print("Please input 'E' to play at easy level or 'D' to play at difficult level: ");
+            input = sc.nextLine();
+            input1 = input.toUpperCase();
+        }
+        if(input1.equals("E")){
+            System.out.println("You have select the easy level.");
+            easy = true;
+        }
+        if(input1.equals("D")){
+            System.out.println("You have selected the difficult level.");
+            easy = false;
+        }
+        Round.setLevel(easy);
+    }
+
     //Asks player if they would like to play another game.
     public static boolean anotherGame() {
-        boolean playAnotherGame;
-        playAnotherGame = false;
+        boolean playAnotherGame = false;
         System.out.println("Would you like to play another game of Top Trumps");
         System.out.println("_____________________________________________________");
-        String input = "";
+        String input;
         String input1 = "";
         Scanner sc = new Scanner(System.in);
         while (!((input1.equals("Y"))||(input1.equals("N")))) {
