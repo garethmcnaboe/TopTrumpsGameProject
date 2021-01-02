@@ -67,10 +67,17 @@ public class Round {
         computerIndex++;
 
         //This will return a boolean to end the game if either player no longer has any cards.
+        //It will also reset the scores and counters to zero for the next game.
         if(player1NumCards == 0 || computerNumCards == 0){
             gameOver = true;
-            return gameOver;
+            player1Score = 0;
+            computerScore = 0;
+            player1Index = 1;
+            computerIndex = 1;
+            player1NumCards = 5;
+            computerNumCards = 5;
         }
+
         return gameOver;
     }
 

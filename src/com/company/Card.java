@@ -47,7 +47,7 @@ public class Card {
         return pace;
     }
 
-    //Fisher-Yates shuffle
+    //Fisher-Yates Shuffle
     public static void shuffleArray(Card[] cardArray) {
         Random rnd = new Random();
 
