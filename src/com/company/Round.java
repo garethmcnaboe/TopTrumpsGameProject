@@ -33,6 +33,7 @@ public class Round {
         }
 
         //prints out the players card for this round
+        System.out.println();
         System.out.println("Player 1 card for this round is as follows:");
         System.out.println("___________________________________________");
         LinkedList.printCard(hand1,player1Index);
@@ -69,6 +70,7 @@ public class Round {
         int resultOfRound = LinkedList.compare(hand1, hand2, player1Index, computerIndex, input1);
 
         //prints out the computers card for this round.
+        System.out.println();
         System.out.println("The Computer's card for this round is as follows:");
         System.out.println("_________________________________________________");
         LinkedList.printCard(hand2,computerIndex);
