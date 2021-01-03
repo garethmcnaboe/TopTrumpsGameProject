@@ -32,7 +32,7 @@ public class Console {
             input1 = input.toUpperCase();
         }
         if(input1.equals("E")){
-            System.out.println("You have select the easy level.");
+            System.out.println("You have selected the easy level.");
             easy = true;
         }
         if(input1.equals("D")){
@@ -40,6 +40,18 @@ public class Console {
             easy = false;
         }
         Round.setLevel(easy);
+    }
+
+    //Asks player are they ready to proceed to the next round of the game.
+    public static void anotherRound() {
+        String input;
+        String input1 = "";
+        Scanner sc = new Scanner(System.in);
+        while (!input1.equals("P")) {
+            System.out.print("Player 1: Please input 'P' to proceed to the next Round: ");
+            input = sc.nextLine();
+            input1 = input.toUpperCase();
+        }
     }
 
     //Asks player if they would like to play another game.

@@ -33,7 +33,6 @@ public class LinkedList {
         first = newLink;
     }
 
-
     //method to delete a card from a particular position - not called yet.
     public static void deleteAtPosition(LinkedList hand, int index) {
         //Store head link
@@ -72,7 +71,8 @@ public class LinkedList {
         System.out.println("Deal Complete.");
     }
 
-    //method to print linked list
+    //method to print linked list - not a part of the game software.
+    //Used extensively in the build and testing of the software.
     public static void printList(LinkedList list) {
         Link currLink = list.first;
         System.out.print("Linkedlist: ");
@@ -132,7 +132,6 @@ public class LinkedList {
         for(int i = 1; i<computerIndex; i++){
             curr2Link = curr2Link.next;
         }
-
                 if((curr2Link.shooting>=curr2Link.passing)
                 && (curr2Link.shooting>=curr2Link.tackling)
                 && (curr2Link.shooting>=curr2Link.pace)) {

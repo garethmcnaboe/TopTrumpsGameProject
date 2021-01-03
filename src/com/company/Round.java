@@ -60,7 +60,9 @@ public class Round {
             //Computer randonly picks the next stat 1 to 4 if the game difficulty is set at easy
             if(gameEasy){
                 Random rn = new Random();
-                input1 = rn.nextInt(4)+1;}
+                input1 = rn.nextInt(4)+1;
+            }
+            System.out.println("The Computer has selected Stat " + input1 + " for this round.");
         }
 
         //Calling method to compare the relevant stat on each players card.

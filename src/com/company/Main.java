@@ -10,6 +10,7 @@ public class Main {
         Console.printHomeScreen();
 
         while(playAnotherGame){
+            //calling method to set the difficulty level
             Console.setLevel();
 
             //create an array called cardArray of 10 card objects.
@@ -28,14 +29,15 @@ public class Main {
             //call method to deal cards into the two linked lists created above.
             LinkedList.deal(hand1, hand2, cardArray);
 
-            //call method to print the linked lists.
+            //call method to print all the linked lists - used for debugging.
             //LinkedList.printList(hand1);
             //LinkedList.printList(hand2);
 
-            //call method to run
+            //call method to run a round of the game.
             boolean gameOver = false;
             while(!gameOver) {
                 gameOver = Round.gameRound(hand1, hand2);
+                Console.anotherRound();
             }
 
             playAnotherGame = Console.anotherGame();
