@@ -68,7 +68,7 @@ public class LinkedList {
             hand2.insertHead(cardArray, a);
             a++;
         }
-        //System.out.println("Deal Complete."); used only for debugging to identify where errors occur.
+        System.out.println("Deal Complete."); //used only for debugging to identify where errors occur.
     }
 
     //method to print linked list - not a part of the game software.

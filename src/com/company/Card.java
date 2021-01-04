@@ -59,6 +59,6 @@ public class Card {
             cardArray[index] = cardArray[i];
             cardArray[i] = a;
         }
-        //System.out.println("Shuffle of deck complete."); used only for debugging to identify where errors occur.
+        System.out.println("Shuffle of deck complete."); //used only for debugging to identify where errors occur.
     }
 }

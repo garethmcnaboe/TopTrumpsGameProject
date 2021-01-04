@@ -29,6 +29,9 @@ public class Main {
             //call method to deal cards into the two linked lists created above.
             LinkedList.deal(hand1, hand2, cardArray);
 
+            //call method to determine who goes first picking the stats.
+            Console.whoGoesFirst();
+
             //call method to print all the linked lists - used for debugging.
             //LinkedList.printList(hand1);
             //LinkedList.printList(hand2);

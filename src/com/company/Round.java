@@ -16,10 +16,15 @@ public class Round {
     private static boolean player1Round = true;
     private static boolean gameEasy = true;
 
-
-    //Setter for game difficulty level
+    //Setter for game difficulty level.
     public static void setLevel(boolean input){
         gameEasy = input;
+    }
+
+    //Setter for whether player1 or computer picks the next stat.
+    public static void setPlayer1Round(boolean input){
+        player1Round = input;
+
     }
 
     public static boolean gameRound(LinkedList hand1, LinkedList hand2) {
@@ -111,7 +116,6 @@ public class Round {
             player1NumCards = 5;
             computerNumCards = 5;
         }
-
         return gameOver;
     }
 }

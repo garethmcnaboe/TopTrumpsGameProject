@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Console {
 
@@ -40,6 +41,22 @@ public class Console {
             easy = false;
         }
         Round.setLevel(easy);
+    }
+
+    //Determines whether the player or computer goes first picking the stat to be compared.
+    public static void whoGoesFirst(){
+        System.out.println("The computer will now randomly determine who goes first.");
+        Random rg = new Random();
+        int a = rg.nextInt(10) + 1;
+        boolean player1Round = (a >= 6)? true:false;
+        if(player1Round){
+            System.out.println("You have won the virtual coin toss and will pick first.");
+        }
+        else {
+            System.out.println("The computer has won the virtual coin toss and will pick first.");
+        }
+        System.out.println();
+        Round.setPlayer1Round(player1Round);
     }
 
     //Asks player are they ready to proceed to the next round of the game.
