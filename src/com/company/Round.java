@@ -81,22 +81,26 @@ public class Round {
         LinkedList.printCard(hand2,computerIndex);
         System.out.println("_________________________________________________");
 
-        //Adjusts the scores for each player
+        //Adjusts the scores for each player & calls methods to move card from one hand to another.
         if (resultOfRound == 1) {
             System.out.println("You have won this round");
+            LinkedList.addAtPosition(hand1,hand2,player1Index,computerIndex);
+            LinkedList.deleteAtPosition(hand2,computerIndex);
             player1Score++;
             player1Round = true;
-            LinkedList.deleteAtPosition(hand2,computerIndex);
-            --computerNumCards;
-
-
+            player1Index++;
+            player1NumCards++;
+            computerNumCards--;
             }
         if (resultOfRound == -1) {
             System.out.println("You have lost this round");
+            LinkedList.addAtPosition(hand2,hand1,computerIndex,player1Index);
+            LinkedList.deleteAtPosition(hand1,player1Index);
             computerScore++;
             player1Round = false;
-            LinkedList.deleteAtPosition(hand1,player1Index);
-            --player1NumCards;
+            computerIndex++;
+            computerNumCards++;
+            player1NumCards--;
             }
         if (resultOfRound == 0) {
             System.out.println("This round was a tie");
@@ -105,7 +109,6 @@ public class Round {
         //prints out the scores for each player to the screen
         System.out.println("Player1 score: " + player1Score + "    Computer score: " + computerScore);
         System.out.println("Player1 number of cards: " + player1NumCards + "   Computer number of Cards: " + computerNumCards);
-        System.out.println();
         System.out.println();
 
         //moves each player onto their next card at the end of each round.

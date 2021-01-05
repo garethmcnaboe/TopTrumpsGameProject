@@ -24,6 +24,17 @@ public class LinkedList {
             this.pace = cardArray[a].getPace();
             next = null;
         }
+
+        //Default Constructor
+        public Link(){
+            this.playerName = null;
+            this.playerCountry = null;
+            this.shooting = 0;
+            this.passing = 0;
+            this.tackling = 0;
+            this.pace = 0;
+            next = null;
+        }
     }
 
     //method to deal card at the head of the linked list.
@@ -33,7 +44,31 @@ public class LinkedList {
         first = newLink;
     }
 
-    //method to delete a card from a particular position.
+    //method to add a card to a particular position in a players hand when they have won a round.
+    //Under construction!!!!
+    public static void addAtPosition(LinkedList handW, LinkedList handL, int indexW, int indexL){
+        LinkedList.Link currWLink = handW.first;
+        for(int i = 1; i<indexW; i++) {
+            currWLink = currWLink.next;
+        }
+        LinkedList.Link currLLink = handL.first;
+        for(int i = 1; i<indexL; i++){
+            currLLink = currLLink.next;
+        }
+
+        Link newLink = new Link();
+        newLink.playerName = currLLink.playerName;
+        newLink.playerCountry = currLLink.playerCountry;
+        newLink.shooting = currLLink.shooting;
+        newLink.passing = currLLink.passing;
+        newLink.tackling = currLLink.tackling;
+        newLink.pace = currLLink.pace;
+
+        newLink.next = currWLink.next;
+        currWLink.next = newLink;
+    }
+
+    //method to delete a card from a particular position in a players hand when they have lost a round.
     public static void deleteAtPosition(LinkedList hand, int index) {
         Link currLink = hand.first;
         Link previous = hand.first;

@@ -44,11 +44,12 @@ public class Main {
                 //call method to print all the linked lists - used for debugging.
                 LinkedList.printList(hand1);
                 LinkedList.printList(hand2);
+
+                //call method to proceed to the next round.
                 if(!gameOver) {
                     Console.anotherRound();
                 }
             }
-
             playAnotherGame = Console.anotherGame();
         }
         Console.end();
