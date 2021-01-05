@@ -88,7 +88,7 @@ public class Round {
             LinkedList.deleteAtPosition(hand2,computerIndex);
             player1Score++;
             player1Round = true;
-            player1Index++;
+            player1Index = player1Index + 2;
             player1NumCards++;
             computerNumCards--;
             }
@@ -98,22 +98,21 @@ public class Round {
             LinkedList.deleteAtPosition(hand1,player1Index);
             computerScore++;
             player1Round = false;
-            computerIndex++;
+            computerIndex = computerIndex + 2;
             computerNumCards++;
             player1NumCards--;
             }
         if (resultOfRound == 0) {
             System.out.println("This round was a tie");
+            player1Index++;
+            computerIndex++;
             }
 
         //prints out the scores for each player to the screen
         System.out.println("Player1 score: " + player1Score + "    Computer score: " + computerScore);
         System.out.println("Player1 number of cards: " + player1NumCards + "   Computer number of Cards: " + computerNumCards);
+        System.out.println("Player1 index is: " + player1Index + "    Computer index is: " + computerIndex);
         System.out.println();
-
-        //moves each player onto their next card at the end of each round.
-        player1Index++;
-        computerIndex++;
 
         //Prints the winner of the game if either player has zero cards left.
         if(player1NumCards == 0){
