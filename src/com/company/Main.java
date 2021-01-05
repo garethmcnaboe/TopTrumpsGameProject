@@ -3,6 +3,7 @@ package com.company;
 public class Main {
 
     private static boolean playAnotherGame = true;
+    private static boolean gameOver = false;
 
     public static void main(String[] args) {
 
@@ -10,6 +11,8 @@ public class Main {
         Console.printHomeScreen();
 
         while(playAnotherGame){
+            gameOver = false;
+
             //calling method to set the difficulty level
             Console.setLevel();
 
@@ -25,9 +28,10 @@ public class Main {
             //create 2 linked lists to hold the two players hands of cards.
             LinkedList hand1 = new LinkedList();
             LinkedList hand2 = new LinkedList();
+            LinkedList centreCards = new LinkedList();
 
             //call method to deal cards into the two linked lists created above.
-            LinkedList.deal(hand1, hand2, cardArray);
+            LinkedList.deal(hand1,hand2,centreCards,cardArray);
 
             //call method to determine who goes first picking the stats.
             Console.whoGoesFirst();
@@ -35,15 +39,17 @@ public class Main {
             //call method to print all the linked lists - used for debugging.
             LinkedList.printList(hand1);
             LinkedList.printList(hand2);
+            LinkedList.printList(centreCards);
 
             //call method to run a round of the game.
-            boolean gameOver = false;
+
             while(!gameOver) {
-                gameOver = Round.gameRound(hand1, hand2);
+                gameOver = Round.gameRound(hand1, hand2, centreCards);
 
                 //call method to print all the linked lists - used for debugging.
                 LinkedList.printList(hand1);
                 LinkedList.printList(hand2);
+                LinkedList.printList(centreCards);
 
                 //call method to proceed to the next round.
                 if(!gameOver) {

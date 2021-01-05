@@ -9,8 +9,10 @@ public class Round {
     private static int computerScore;
     private static int player1Index = 1;
     private static int computerIndex = 1;
+    private static int centreCardIndex = 1;
     private static int player1NumCards = 5;
     private static int computerNumCards = 5;
+    private static int centreCardNum = 1;
     private static int input1;
     private static boolean gameOver = false;
     private static boolean player1Round = true;
@@ -24,10 +26,11 @@ public class Round {
     //Setter for whether player1 or computer picks the next stat.
     public static void setPlayer1Round(boolean input){
         player1Round = input;
-
     }
 
-    public static boolean gameRound(LinkedList hand1, LinkedList hand2) {
+    public static boolean gameRound(LinkedList hand1, LinkedList hand2, LinkedList centreCards) {
+
+        gameOver = false;
 
         //Once a player reaches the end of their linked list this will reset them back to the start.
         if(player1Index> player1NumCards){
@@ -91,7 +94,15 @@ public class Round {
             player1Index = player1Index + 2;
             player1NumCards++;
             computerNumCards--;
+                while(centreCardIndex>1) {
+                    LinkedList.addAtPosition(hand1,centreCards,player1Index,centreCardIndex);
+                    LinkedList.deleteAtPosition(centreCards,centreCardIndex);
+                    centreCardIndex--;
+                    player1Index++;
+                    player1NumCards++;
+                }
             }
+
         if (resultOfRound == -1) {
             System.out.println("You have lost this round");
             LinkedList.addAtPosition(hand2,hand1,computerIndex,player1Index);
@@ -101,11 +112,26 @@ public class Round {
             computerIndex = computerIndex + 2;
             computerNumCards++;
             player1NumCards--;
+                while(centreCardIndex>1){
+                    LinkedList.addAtPosition(hand2,centreCards,computerIndex,centreCardIndex);
+                    LinkedList.deleteAtPosition(centreCards,centreCardIndex);
+                    centreCardIndex--;
+                    computerIndex++;
+                    computerNumCards++;
+                }
+
+
             }
         if (resultOfRound == 0) {
             System.out.println("This round was a tie");
-            player1Index++;
-            computerIndex++;
+            LinkedList.addAtPosition(centreCards,hand1,centreCardIndex,player1Index);
+            centreCardIndex++;
+            LinkedList.addAtPosition(centreCards,hand2,centreCardIndex,computerIndex);
+            centreCardIndex++;
+            LinkedList.deleteAtPosition(hand1,player1Index);
+            player1NumCards--;
+            LinkedList.deleteAtPosition(hand2,computerIndex);
+            computerNumCards--;
             }
 
         //prints out the scores for each player to the screen

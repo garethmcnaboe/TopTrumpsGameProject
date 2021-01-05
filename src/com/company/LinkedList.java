@@ -44,6 +44,13 @@ public class LinkedList {
         first = newLink;
     }
 
+    //method to deal a placeholder card into the centreCards
+    public void insertHead() {
+        Link newLink = new Link();
+        newLink.next = first;
+        first = newLink;
+    }
+
     //method to add a card to a particular position in a players hand when they have won a round.
     //Under construction!!!!
     public static void addAtPosition(LinkedList handW, LinkedList handL, int indexW, int indexL){
@@ -90,7 +97,7 @@ public class LinkedList {
     }
 
     //method to call the insert method alternatively on hand1 and hand2.
-    public static void deal(LinkedList hand1, LinkedList hand2, Card[] cardArray) {
+    public static void deal(LinkedList hand1, LinkedList hand2, LinkedList centreCards, Card[] cardArray) {
         int a = 0;
         while (a < cardArray.length) {
             hand1.insertHead(cardArray, a);
@@ -98,6 +105,7 @@ public class LinkedList {
             hand2.insertHead(cardArray, a);
             a++;
         }
+        centreCards.insertHead();
         System.out.println("Deal Complete."); //used only for debugging to identify where errors occur.
     }
 
@@ -180,9 +188,9 @@ public class LinkedList {
                 return 3;
                 }
 
-                if((curr2Link.pace>=curr2Link.passing)
-                && (curr2Link.pace>=curr2Link.tackling)
-                && (curr2Link.pace>=curr2Link.shooting)) {
+                if((curr2Link.pace>=curr2Link.shooting)
+                && (curr2Link.pace>=curr2Link.passing)
+                && (curr2Link.pace>=curr2Link.tackling)) {
                     return 4;
                 }
         return 1000;
