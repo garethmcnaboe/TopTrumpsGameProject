@@ -44,8 +44,9 @@ public class Main {
                 //call method to print all the linked lists - used for debugging.
                 LinkedList.printList(hand1);
                 LinkedList.printList(hand2);
-
-                Console.anotherRound();
+                if(!gameOver) {
+                    Console.anotherRound();
+                }
             }
 
             playAnotherGame = Console.anotherGame();

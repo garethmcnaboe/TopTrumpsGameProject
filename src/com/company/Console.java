@@ -74,13 +74,13 @@ public class Console {
     //Asks player if they would like to play another game.
     public static boolean anotherGame() {
         boolean playAnotherGame = false;
-        System.out.println("Would you like to play another game of Top Trumps");
+        System.out.println("Would you like to play another game of Top Trumps?");
         System.out.println("_____________________________________________________");
         String input;
         String input1 = "";
         Scanner sc = new Scanner(System.in);
         while (!((input1.equals("Y"))||(input1.equals("N")))) {
-            System.out.print("Please input 'Y' to play again or 'N' to exit");
+            System.out.print("Please input 'Y' to play again or 'N' to exit: ");
             input = sc.nextLine();
             input1 = input.toUpperCase();
         }
@@ -95,6 +95,6 @@ public class Console {
 
     //Prints a farewell message.
     public static void end() {
-        System.out.println("Thank you for playing Top Trumps");
+        System.out.println("Thank you for playing Top Trumps!!!");
         }
     }
