@@ -33,29 +33,24 @@ public class LinkedList {
         first = newLink;
     }
 
-    //method to delete a card from a particular position - not called yet.
+    //method to delete a card from a particular position.
     public static void deleteAtPosition(LinkedList hand, int index) {
-        //Store head link
-        Link currLink = hand.first, prev = null;
+        Link currLink = hand.first;
+        Link previous = hand.first;
 
-        //Case 1: if index is 0, then head node itself is to be deleted
-        if(index == 0 && currLink != null){
-            hand.first = currLink.next;
+        //Case 1: if index is 1, then head node itself is to be deleted.
+        if(index == 1){
+            Link temp = hand.first;
+            hand.first = hand.first.next;
         }
 
-        //Case2: If the index is greater than 0 but less than the size of LinkedList
-        int counter = 0;
-
-        while(currLink != null){
-
-            if(counter == index){
-                prev.next = currLink.next;
-            }
-            else {
-                prev = currLink;
+        //Case 2: if index is greater than 1, iterate over index and then delete link.
+        if(index > 1){
+            for(int i = 1; i<index; i++) {
+                previous = currLink;
                 currLink = currLink.next;
-                counter++;
             }
+            previous.next = currLink.next;
         }
     }
 
@@ -84,7 +79,7 @@ public class LinkedList {
         System.out.println();
     }
 
-    //Method used to print the first card in the each players dec
+    //Method used to print the current card in the deck
     public static void printCard(LinkedList list, int indexNum) {
         LinkedList.Link currLink = list.first;
         for(int i = 1; i<indexNum; i++) {
@@ -99,7 +94,7 @@ public class LinkedList {
         System.out.println();
     }
 
-    //Method used to compare a particular in two cards - will return 1, -1 or 0
+    //Method used to compare a particular stats in two cards - will return 1, -1 or 0
     public static int compare(LinkedList hand1, LinkedList hand2, int player1Index, int computerIndex, int num) {
         LinkedList.Link curr1Link = hand1.first;
         for(int i = 1; i<player1Index; i++) {

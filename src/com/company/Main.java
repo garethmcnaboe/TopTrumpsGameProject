@@ -33,13 +33,18 @@ public class Main {
             Console.whoGoesFirst();
 
             //call method to print all the linked lists - used for debugging.
-            //LinkedList.printList(hand1);
-            //LinkedList.printList(hand2);
+            LinkedList.printList(hand1);
+            LinkedList.printList(hand2);
 
             //call method to run a round of the game.
             boolean gameOver = false;
             while(!gameOver) {
                 gameOver = Round.gameRound(hand1, hand2);
+
+                //call method to print all the linked lists - used for debugging.
+                LinkedList.printList(hand1);
+                LinkedList.printList(hand2);
+
                 Console.anotherRound();
             }
 

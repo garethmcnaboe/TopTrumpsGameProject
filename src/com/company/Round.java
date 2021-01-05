@@ -86,11 +86,17 @@ public class Round {
             System.out.println("You have won this round");
             player1Score++;
             player1Round = true;
+            LinkedList.deleteAtPosition(hand2,computerIndex);
+            --computerNumCards;
+
+
             }
         if (resultOfRound == -1) {
             System.out.println("You have lost this round");
             computerScore++;
             player1Round = false;
+            LinkedList.deleteAtPosition(hand1,player1Index);
+            --player1NumCards;
             }
         if (resultOfRound == 0) {
             System.out.println("This round was a tie");
@@ -98,12 +104,21 @@ public class Round {
 
         //prints out the scores for each player to the screen
         System.out.println("Player1 score: " + player1Score + "    Computer score: " + computerScore);
+        System.out.println("Player1 number of cards: " + player1NumCards + "   Computer number of Cards: " + computerNumCards);
         System.out.println();
         System.out.println();
 
         //moves each player onto their next card at the end of each round.
         player1Index++;
         computerIndex++;
+
+        //Prints the winner of the game if either player has zero cards left.
+        if(player1NumCards == 0){
+            System.out.println("The Computer has won this game!!!");
+        }
+        if(computerNumCards == 0){
+            System.out.println("Player1 has won this game!!!");
+        }
 
         //This will return a boolean to end the game if either player no longer has any cards.
         //It will also reset the scores and counters to zero for the next game.
