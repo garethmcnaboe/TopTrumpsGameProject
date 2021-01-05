@@ -12,7 +12,6 @@ public class Round {
     private static int centreCardIndex = 1;
     private static int player1NumCards = 5;
     private static int computerNumCards = 5;
-    private static int centreCardNum = 1;
     private static int input1;
     private static boolean gameOver = false;
     private static boolean player1Round = true;
@@ -119,8 +118,6 @@ public class Round {
                     computerIndex++;
                     computerNumCards++;
                 }
-
-
             }
         if (resultOfRound == 0) {
             System.out.println("This round was a tie");
