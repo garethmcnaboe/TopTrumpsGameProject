@@ -176,23 +176,20 @@ public class LinkedList {
                 return 1;
                 }
 
-                if((curr2Link.passing>=curr2Link.shooting)
+                else if((curr2Link.passing>=curr2Link.shooting)
                 && (curr2Link.passing>=curr2Link.tackling)
                 && (curr2Link.passing>=curr2Link.pace)) {
                 return 2;
                 }
 
-                if((curr2Link.tackling>=curr2Link.passing)
+                else if((curr2Link.tackling>=curr2Link.passing)
                 && (curr2Link.tackling>=curr2Link.shooting)
                 && (curr2Link.tackling>=curr2Link.pace)) {
                 return 3;
                 }
 
-                if((curr2Link.pace>=curr2Link.shooting)
-                && (curr2Link.pace>=curr2Link.passing)
-                && (curr2Link.pace>=curr2Link.tackling)) {
+                else {
                     return 4;
                 }
-        return 1000;
     }
 }

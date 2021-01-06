@@ -5,12 +5,12 @@ import java.util.Random;
 public class Card {
 
     //Fields
-    private String playerName;
-    private String playerCountry;
-    private int shooting;
-    private int passing;
-    private int tackling;
-    private int pace;
+    public String playerName;
+    public String playerCountry;
+    public int shooting;
+    public int passing;
+    public int tackling;
+    public int pace;
 
     //General Constructor
     public Card(String playerName, String playerCountry, int shooting, int passing, int tackling, int pace) {
@@ -59,6 +59,6 @@ public class Card {
             cardArray[index] = cardArray[i];
             cardArray[i] = a;
         }
-        System.out.println("Shuffle of deck complete."); //used only for debugging to identify where errors occur.
+        //System.out.println("Shuffle of deck complete."); //used only for debugging to identify where errors occur.
     }
 }

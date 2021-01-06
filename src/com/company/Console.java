@@ -48,7 +48,7 @@ public class Console {
         System.out.println("The computer will now randomly determine who goes first.");
         Random rg = new Random();
         int a = rg.nextInt(10) + 1;
-        boolean player1Round = (a >= 6)? true:false;
+        boolean player1Round = a >= 6;
         if(player1Round){
             System.out.println("You have won the virtual coin toss and will pick first.");
         }
@@ -73,7 +73,7 @@ public class Console {
 
     //Asks player if they would like to play another game.
     public static boolean anotherGame() {
-        boolean playAnotherGame = false;
+        boolean playAnotherGame;
         System.out.println("Would you like to play another game of Top Trumps?");
         System.out.println("_____________________________________________________");
         String input;
@@ -87,7 +87,7 @@ public class Console {
         if(input1.equals("Y")){
             playAnotherGame = true;
         }
-        if(input1.equals("N")) {
+        else{
             playAnotherGame = false;
         }
         return playAnotherGame;

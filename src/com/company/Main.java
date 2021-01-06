@@ -3,7 +3,6 @@ package com.company;
 public class Main {
 
     private static boolean playAnotherGame = true;
-    private static boolean gameOver = false;
 
     public static void main(String[] args) {
 
@@ -11,7 +10,7 @@ public class Main {
         Console.printHomeScreen();
 
         while(playAnotherGame){
-            gameOver = false;
+            boolean gameOver = false;
 
             //calling method to set the difficulty level
             Console.setLevel();

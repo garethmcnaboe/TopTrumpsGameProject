@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Round {
 
-    private static int player1Score;
-    private static int computerScore;
+    private static int player1Score = 0;
+    private static int computerScore = 0;
     private static int player1Index = 1;
     private static int computerIndex = 1;
     private static int centreCardIndex = 1;
