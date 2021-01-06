@@ -52,7 +52,7 @@ public class LinkedList {
     }
 
     //method to add a card to a particular position in a players hand when they have won a round.
-    //Under construction!!!!
+
     public static void addAtPosition(LinkedList handW, LinkedList handL, int indexW, int indexL){
         LinkedList.Link currWLink = handW.first;
         for(int i = 1; i<indexW; i++) {

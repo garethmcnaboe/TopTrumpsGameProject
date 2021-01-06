@@ -25,7 +25,7 @@ public class Main {
             //calling method to shuffle the deck of cards
             Card.shuffleArray(cardArray);
 
-            //create 2 linked lists to hold the two players hands of cards.
+            //create 3 linked lists to hold the two players hands of cards and the centre pile.
             LinkedList hand1 = new LinkedList();
             LinkedList hand2 = new LinkedList();
             LinkedList centreCards = new LinkedList();
@@ -37,19 +37,18 @@ public class Main {
             Console.whoGoesFirst();
 
             //call method to print all the linked lists - used for debugging.
-            LinkedList.printList(hand1);
-            LinkedList.printList(hand2);
-            LinkedList.printList(centreCards);
+            //LinkedList.printList(hand1);
+            //LinkedList.printList(hand2);
+            //LinkedList.printList(centreCards);
 
             //call method to run a round of the game.
-
             while(!gameOver) {
                 gameOver = Round.gameRound(hand1, hand2, centreCards);
 
                 //call method to print all the linked lists - used for debugging.
-                LinkedList.printList(hand1);
-                LinkedList.printList(hand2);
-                LinkedList.printList(centreCards);
+                //LinkedList.printList(hand1);
+                //LinkedList.printList(hand2);
+                //LinkedList.printList(centreCards);
 
                 //call method to proceed to the next round.
                 if(!gameOver) {

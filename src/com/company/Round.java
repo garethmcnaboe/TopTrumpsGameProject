@@ -83,16 +83,24 @@ public class Round {
         LinkedList.printCard(hand2,computerIndex);
         System.out.println("_________________________________________________");
 
-        //Adjusts the scores for each player & calls methods to move card from one hand to another.
+        //This block operates if player 1 wins the round.
         if (resultOfRound == 1) {
+            //Declares winner of the round and calls method to copy card to winner and delete card from loser
             System.out.println("You have won this round");
             LinkedList.addAtPosition(hand1,hand2,player1Index,computerIndex);
             LinkedList.deleteAtPosition(hand2,computerIndex);
+            //resets the score for player1 and confirms next round they pick.
             player1Score++;
             player1Round = true;
+            //moves the counter along so that the right next card shows / also has reset to the start
             player1Index = player1Index + 2;
+            if(player1Index> player1NumCards){
+                player1Index = 1;
+            }
+            //resets the number of cards held by each player
             player1NumCards++;
             computerNumCards--;
+            //if there are cards in the centre they are allocated to the winner.
                 while(centreCardIndex>1) {
                     LinkedList.addAtPosition(hand1,centreCards,player1Index,centreCardIndex);
                     LinkedList.deleteAtPosition(centreCards,centreCardIndex);
@@ -102,15 +110,24 @@ public class Round {
                 }
             }
 
+        //This block operates if the computer wins the round.
         if (resultOfRound == -1) {
+            //Declares winner of the round and calls method to copy card to winner and delete card from loser
             System.out.println("You have lost this round");
             LinkedList.addAtPosition(hand2,hand1,computerIndex,player1Index);
             LinkedList.deleteAtPosition(hand1,player1Index);
+            //resets the score for computer and confirms next round they pick.
             computerScore++;
             player1Round = false;
+            //moves the counter along so that the right next card shows / also has reset to the start
             computerIndex = computerIndex + 2;
+            if(computerIndex>computerNumCards){
+                computerIndex = 1;
+            }
+            //resets the number of cards held by each player
             computerNumCards++;
             player1NumCards--;
+            //if there are cards in the centre they are allocated to the winner.
                 while(centreCardIndex>1){
                     LinkedList.addAtPosition(hand2,centreCards,computerIndex,centreCardIndex);
                     LinkedList.deleteAtPosition(centreCards,centreCardIndex);
@@ -119,23 +136,27 @@ public class Round {
                     computerNumCards++;
                 }
             }
+
+        //This block operates if the round is a draw
         if (resultOfRound == 0) {
+            //Declares that the round is a draw.
             System.out.println("This round was a tie");
+            //Calls method to copy cards into the centre
             LinkedList.addAtPosition(centreCards,hand1,centreCardIndex,player1Index);
-            centreCardIndex++;
             LinkedList.addAtPosition(centreCards,hand2,centreCardIndex,computerIndex);
-            centreCardIndex++;
+            centreCardIndex = centreCardIndex + 2;
+            //Calls methods to delete the cards from hands of both player1 and the computer.
             LinkedList.deleteAtPosition(hand1,player1Index);
             player1NumCards--;
             LinkedList.deleteAtPosition(hand2,computerIndex);
             computerNumCards--;
             }
 
-        //prints out the scores for each player to the screen
-        System.out.println("Player1 score: " + player1Score + "    Computer score: " + computerScore);
+        //prints out the number of cards held by each player. Other print statements used for debugging.
         System.out.println("Player1 number of cards: " + player1NumCards + "   Computer number of Cards: " + computerNumCards);
-        System.out.println("Player1 index is: " + player1Index + "    Computer index is: " + computerIndex);
         System.out.println();
+        //System.out.println("Player1 score: " + player1Score + "    Computer score: " + computerScore);
+        //System.out.println("Player1 index is: " + player1Index + "    Computer index is: " + computerIndex);
 
         //Prints the winner of the game if either player has zero cards left.
         if(player1NumCards == 0){
@@ -155,6 +176,7 @@ public class Round {
             computerIndex = 1;
             player1NumCards = 5;
             computerNumCards = 5;
+            centreCardIndex = 1;
         }
         return gameOver;
     }
