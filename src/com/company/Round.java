@@ -10,8 +10,8 @@ public class Round {
     private static int player1Index = 1;
     private static int computerIndex = 1;
     private static int centreCardIndex = 1;
-    private static int player1NumCards = 5;
-    private static int computerNumCards = 5;
+    private static int player1NumCards = 15;
+    private static int computerNumCards = 15;
     private static int input1;
     private static boolean gameOver = false;
     private static boolean player1Round = true;
@@ -174,8 +174,8 @@ public class Round {
             computerScore = 0;
             player1Index = 1;
             computerIndex = 1;
-            player1NumCards = 5;
-            computerNumCards = 5;
+            player1NumCards = 15;
+            computerNumCards = 15;
             centreCardIndex = 1;
         }
         return gameOver;

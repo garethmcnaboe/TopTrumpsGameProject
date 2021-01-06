@@ -16,8 +16,8 @@ public class Main {
             //calling method to set the difficulty level
             Console.setLevel();
 
-            //create an array called cardArray of 10 card objects.
-            Card[] cardArray = new Card[10];
+            //create an array called cardArray of 30 card objects.
+            Card[] cardArray = new Card[30];
 
             //calling method which will create objects which will contain the player card data.
             CardData.createCards(cardArray);
