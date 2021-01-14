@@ -170,24 +170,25 @@ public class LinkedList {
         for(int i = 1; i<computerIndex; i++){
             curr2Link = curr2Link.next;
         }
+                //first check if shooting is the highest
                 if((curr2Link.shooting>=curr2Link.passing)
                 && (curr2Link.shooting>=curr2Link.tackling)
                 && (curr2Link.shooting>=curr2Link.pace)) {
                 return 1;
                 }
 
-                else if((curr2Link.passing>=curr2Link.shooting)
-                && (curr2Link.passing>=curr2Link.tackling)
+                //we already know that shooting is not the highest so do not need to test for it.
+                else if((curr2Link.passing>=curr2Link.tackling)
                 && (curr2Link.passing>=curr2Link.pace)) {
                 return 2;
                 }
 
-                else if((curr2Link.tackling>=curr2Link.passing)
-                && (curr2Link.tackling>=curr2Link.shooting)
-                && (curr2Link.tackling>=curr2Link.pace)) {
+                //we already know that passing and shooting are not the highest so do not need to test for it.
+                else if(curr2Link.tackling>=curr2Link.pace) {
                 return 3;
                 }
 
+                //we already know that shooting, passing and tackling are not the highest so we can assume that pace is.
                 else {
                     return 4;
                 }
